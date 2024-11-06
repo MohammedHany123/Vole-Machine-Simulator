@@ -41,7 +41,7 @@
    - **Qt Framework**: Install Qt 6.8 (needed for graphical interface).
    - **Compiler**: Ensure you have a C++ compiler, such as `g++` or `clang++`.
 3. **Build the Project**:
-   - Open the project in Qt Creator and built it.
+   - Open the project in Qt Creator and build it by cmake.
 4. **Run the Program**
 
 ## Usage
