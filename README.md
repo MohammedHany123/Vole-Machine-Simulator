@@ -93,6 +93,10 @@ Contributions are welcome! Please follow these steps:
 
 Please ensure that your code follows the existing style and that all new features are documented.
 
+## Additional Link
+
+This is a [YouTube link]([url](https://www.youtube.com/watch?v=4jYBTc85-gM)) to show how does the program work.
+
 ## License
 
 This project is licensed under the MIT License.
