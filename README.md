@@ -1,6 +1,6 @@
 # Vole Machine Simulator
 
-**Vole Machine Simulator** is a simulation of a virtual machine designed to execute instructions written in a specific assembly-like language. This program provides a graphical interface that allows users to load, execute, and visualize instructions with memory and register operations.
+**Vole Machine Simulator** is originally an assignment for OOP class at Faculty of Computers and Artificial Intelligence at Cairo University under the supervision of Dr. Mohammad El-Ramly made by Ahmed Samir, Mohammed Hany, Loay Medhat. It is a simulation of a virtual machine designed to execute instructions written in a specific assembly-like language. This program provides a graphical interface that allows users to load, execute, and visualize instructions with memory and register operations.
 
 ## Table of Contents
 
