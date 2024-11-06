@@ -9,6 +9,7 @@
 #include <QFileDialog>
 #include <QEventLoop>
 #include <QTimer>
+#include <QPair>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -291,13 +292,15 @@ QString Instruction::execute(CPU& cpu, Memory& memory, Registers& registers)
     std::string XY = S + T;
 
     switch (opcode) {
-    case '1':  // Load value from RAM[XY] to register R
+    case '1':
         load(cpu, memory, registers, R, XY);
+        jumpFlag = false;
         break;
-    case '2':  // Copy bit-string XY to register R
+    case '2':
         copy(cpu, memory, registers, R, XY);
+        jumpFlag = false;
         break;
-    case '3':  // Store value from register R to RAM[XY]
+    case '3':
         if (XY == "00")
         {
             int regIndex = cpu.hex_string_to_int(QString::fromStdString(R));
@@ -305,10 +308,10 @@ QString Instruction::execute(CPU& cpu, Memory& memory, Registers& registers)
 
            if (!value.isEmpty()) {
                 bool ok;
-                int intValue = value.toInt(&ok, 16); // Convert hex string to integer (base 16)
+                int intValue = value.toInt(&ok, 16);
                 if (ok) {
-                    char asciiChar = static_cast<char>(intValue); // Convert integer to ASCII character
-                    outputLine = outputLine + QString(asciiChar); // Store as QString for output
+                    char asciiChar = static_cast<char>(intValue);
+                    outputLine = outputLine + QString(asciiChar);
                 }
             }
             store(cpu, memory, registers, R, XY);
@@ -317,41 +320,57 @@ QString Instruction::execute(CPU& cpu, Memory& memory, Registers& registers)
         {
             store(cpu, memory, registers, R, XY);
         }
+        jumpFlag = false;
         break;
-    case '4':  // Move value from register R to register S
+    case '4':
         move(cpu, registers, S, T);
+        jumpFlag = false;
         break;
     case '5':
         addOperationTwo(cpu, registers, R, S, T);
+        jumpFlag = false;
         break;
     case '6':
         addOperationFloating(cpu, registers, R, S, T);
+        jumpFlag = false;
         break;
     case '7':
         orOperation(cpu, registers, R, S, T);
+        jumpFlag = false;
         break;
     case '8':
         andOperation(cpu, registers, R, S, T);
+        jumpFlag = false;
         break;
     case '9':
         xorRotation(cpu, registers, R, S, T);
+        jumpFlag = false;
         break;
     case 'A':
         rotateRight(cpu, registers, R, T);
+        jumpFlag = false;
         break;
-    case 'B':  // Jump to address XY if register R is zero
+    case 'B':
         jump(cpu, registers, R, XY);
+        jumpFlag = true;
         break;
-    case 'C':  // Halt CPU execution
+    case 'C':
         halt();
+        jumpFlag = false;
         break;
-    case 'D':  // Jump to address XY if register R is zero
+    case 'D':
         jumpg(cpu, registers, R, XY);
+        jumpFlag = true;
         break;
     default:
         break;
     }
     return outputLine;
+}
+
+bool Instruction::getFlag()
+{
+    return jumpFlag;
 }
 
 void MainWindow::on_FetchMemory_clicked()
@@ -751,6 +770,14 @@ void MainWindow::on_Execution_clicked()
     }
 
     QString outputLine = ir.execute(cpu, memory, registers);
+    if(ir.getFlag())
+    {
+        ui->CUScreen->setStyleSheet("background-color: rgb(255, 255, 255); font: 700 8pt 'Courier New';");
+    }
+    else
+    {
+        ui->CUScreen->setStyleSheet("background-color: rgb(255, 255, 255); font: 700 12pt 'Courier New';");
+    }
     if (!outputLine.isEmpty()) {
         updateOutputScreen(outputLine);
     }

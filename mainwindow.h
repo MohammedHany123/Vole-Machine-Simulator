@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <QDialog>
+#include <QPair>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -56,6 +57,7 @@ private:
     Registers registers;
     QString outputLine;
     bool haltFlag = false;
+    bool jumpFlag;
 public:
     void setInstruct(const std::string& code);
     void clearOutput();
@@ -74,6 +76,7 @@ public:
     void addOperationTwo(CPU& cpu, Registers& registers, const std::string& R, const std::string& S, const std::string& T);
     void addOperationFloating(CPU& cpu, Registers& registers, const std::string& R, const std::string& S, const std::string& T);
     QString execute(CPU& cpu, Memory& memory, Registers& registers);
+    bool getFlag();
 };
 
 class MainWindow : public QMainWindow
