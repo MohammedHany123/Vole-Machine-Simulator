@@ -11,6 +11,7 @@
 - [Instruction Set](#instruction-set)
 - [Code Structure](#code-structure)
 - [Contributing](#contributing)
+- [Additional Links](#additional-links)
 - [License](#license)
 
 ---
@@ -93,9 +94,9 @@ Contributions are welcome! Please follow these steps:
 
 Please ensure that your code follows the existing style and that all new features are documented.
 
-## Additional Link
+## Additional Links
 
-This is a [YouTube link]([url](https://www.youtube.com/watch?v=4jYBTc85-gM)) to show how does the program work.
+This is a [YouTube link](https://www.youtube.com/watch?v=4jYBTc85-gM) to show how does the program work.
 
 ## License
 
