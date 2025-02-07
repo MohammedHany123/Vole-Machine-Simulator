@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Screenshots](#screenshots)
+- [Screenshots & Photos](#screenshots-&-photos)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Instruction Set](#instruction-set)
@@ -24,7 +24,7 @@
 - **Control Unit (CU) and ALU Display**: Visualize how instructions interact with the CU and ALU screens.
 - **Conditional and Unconditional Jump Instructions**: Test and implement jump instructions with real-time Program Counter (PC) display.
 
-## Screenshots
+## Screenshots & Photos
 ![Screenshot (330)](https://github.com/user-attachments/assets/ce089686-6d4c-4777-93be-156e8b2da659)
 ![Screenshot (331)](https://github.com/user-attachments/assets/86dfe52c-d7bc-4a6d-8d48-b6ee964fc6ad)
 ![Screenshot (329)](https://github.com/user-attachments/assets/bb4b602a-821e-4c90-8640-e8ea9e70f544)
