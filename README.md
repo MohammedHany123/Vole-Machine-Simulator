@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Screenshots & Photos](#screenshots-&-photos)
+- [Screenshots & Photos](#screenshots--photos)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Instruction Set](#instruction-set)
